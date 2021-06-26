@@ -4,11 +4,7 @@
   <div>
     <div class="container mt-5">
       <div class="row justify-content-center">
-        <NewListItem></NewListItem>
-        <NewListItem></NewListItem>
-        <NewListItem></NewListItem>
-        <NewListItem></NewListItem>
-        <NewListItem></NewListItem>
+        <NewListItem v-for="event in upcomingEventList" :event="event" :key="event.Name" @openRegForm="openRegForm"></NewListItem>
       </div>
     </div>
   </div>
@@ -20,7 +16,12 @@ import NewListItem from "./NewListItem";
 export default {
   name: "NewList",
   components: {NewListItem},
-  props: ['upcomingEventList']
+  props: ['upcomingEventList'],
+  methods: {
+    openRegForm() {
+      this.$emit('openRegForm');
+    }
+  }
 }
 </script>
 

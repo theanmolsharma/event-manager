@@ -1,15 +1,10 @@
 <template>
   <div>
-    <div><h1>Upcoming Events</h1></div>
+    <div><h1>Past Events</h1></div>
     <div>
       <div class="container mt-5">
         <div class="row justify-content-center">
-          <PastListItem></PastListItem>
-          <PastListItem></PastListItem>
-          <PastListItem></PastListItem>
-          <PastListItem></PastListItem>
-          <PastListItem></PastListItem>
-          <PastListItem></PastListItem>
+          <PastListItem v-for="event in pastEventList" :event="event" :key="event.Name"></PastListItem>
         </div>
       </div>
     </div>

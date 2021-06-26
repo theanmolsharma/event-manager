@@ -1,11 +1,15 @@
 <template>
   <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card box-shadow mx-auto my-5" style="width: 18rem;">
+    <div class="card box-shadow mx-auto my-5" style="width: max(25vw, 20rem);">
       <img src="https://nsa40.casimages.com/img/2021/06/15/210615072119710056.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Anémone</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-dark">Go somewhere</a>
+        <h5 class="card-title mt-1 md-1">{{event.Name}}</h5>
+        <h6 class="card-subtitle mt-1 md-1">{{event.Date}} - {{event.Time}}</h6>
+        <h6 class="card-subtitle mt-1 md-1">{{event.Duration}}</h6>
+        <h6 class="card-subtitle mt-1 md-1">{{event.Location}}</h6>
+        <p class="card-text mt-1 md-1">{{event.Description}}</p>
+        <p></p>
+        <button class="btn btn-outline-dark btn-lg" disabled>Register</button>
       </div>
     </div>
   </div>
@@ -13,7 +17,8 @@
 
 <script>
 export default {
-  name: "PastListItem"
+  name: "PastListItem",
+  props: ['event']
 }
 </script>
 

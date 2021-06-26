@@ -1,9 +1,9 @@
 <template>
 <div class="header-container">
-  <div class="inner">
-    <h1>Organize Engaging Events, Faster!!</h1>
-    <h3>This is a managing system – backed by open-source code – that helps you organize high-quality irresistible social experiences.</h3>
-  </div>
+    <div class="inner">
+      <h1>Organize Engaging Events, Faster!!</h1>
+      <h3>This is a managing system – backed by open-source code – that helps you organize high-quality irresistible social experiences.</h3>
+    </div>
 </div>
 </template>
 
@@ -15,12 +15,17 @@ export default {
 
 <style>
 .header-container {
-  height: 70vh;
+  height: 100vh;
   width: 100vw;
-  background: #424242;
+
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .inner {
   width: 60vw;
