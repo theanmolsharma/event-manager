@@ -18,8 +18,8 @@ export default {
   components: {NewListItem},
   props: ['upcomingEventList'],
   methods: {
-    openRegForm() {
-      this.$emit('openRegForm');
+    openRegForm(name) {
+      this.$emit('openRegForm', name);
     }
   }
 }

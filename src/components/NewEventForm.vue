@@ -114,6 +114,7 @@ export default {
   top: 0;
   height: 100vh;
   width: 100vw;
+  background-image: linear-gradient(66.47deg, #120d4f, #5e12ce);
   display: flex;
   justify-content: center;
   align-items: center;

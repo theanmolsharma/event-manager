@@ -19,7 +19,7 @@ export default {
   props: ['event'],
   methods: {
     openRegForm() {
-      this.$emit('openRegForm');
+      this.$emit('openRegForm', this.event.Name);
     }
   }
 }

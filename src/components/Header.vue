@@ -18,7 +18,7 @@ export default {
   height: 100vh;
   width: 100vw;
 
-  background-image: url("../assets/bg-4.jpg");
+  background-image: url("../assets/5335415.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

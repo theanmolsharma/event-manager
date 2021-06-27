@@ -1,5 +1,5 @@
 <template>
-  <div class="form-cont">
+  <div class="form-cont blur-bgimage">
     <div class="form p-3" id="form">
       <div class="spacer" style="height: 6vh; width: 100%">
         <button type="button" class="btn btn-outline-danger btn-sm close btn-extra" @click="closeRegForm">Close</button>
@@ -43,7 +43,7 @@ import axios from "axios";
 
 export default {
   name: "RegisterForm",
-  props: ['showRegisterForm'],
+  props: ['eventName'],
   methods: {
     closeRegForm() {
       this.$emit('closeRegForm');
@@ -53,18 +53,23 @@ export default {
       let lastName = document.getElementById('lastName').value;
       let email = document.getElementById('email').value;
       let mobileNumber = document.getElementById('mobileNumber').value;
+      let event = this.eventName;
       let data = {
         firstName,
         lastName,
         email,
-        mobileNumber
+        mobileNumber,
+        event
       }
+      console.log(data);
       const headers = {
         'Content-Type': 'application/json'
       }
       axios.post("https://sheetdb.io/api/v1/mtwm963uzgiay?sheet=Registered", data, {
         headers: headers
-      }).then((response) => console.log(response));
+      }).then((response) => {
+        console.log(response.data)
+      });
       this.closeRegForm();
     }
   }
@@ -84,6 +89,7 @@ export default {
 }
 .form-cont {
   position: fixed;
+  background-image: linear-gradient(66.47deg, #120d4f, #5e12ce);
   top: 0;
   height: 100vh;
   width: 100vw;
@@ -91,16 +97,6 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 6;
-}
-.blur-bg {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: aliceblue;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
 }
 .form {
   background: white;
