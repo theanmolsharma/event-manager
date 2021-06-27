@@ -108,6 +108,7 @@ export default {
     showTable(data) {
       this.closeData();
       this.showDataTable = true;
+      data.sort((a,b) => (a.event > b.event) ? 1 : ((b.event > a.event) ? -1 : 0))
       this.registeredData = data;
     },
   }
