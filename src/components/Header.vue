@@ -37,13 +37,15 @@ export default {
   font-weight: 800;
 
   font-size: clamp(50px, 5vw, 105px);
+  text-align: center;
 
   z-index: 5;
 
   color: #FFFFFF;
 }
 .inner h3 {
-  font-weight: 500;
+  font-weight: 300;
+  margin-top: 30px;
   font-size: clamp(30px, 2.5vw, 85px);
 }
 </style>
