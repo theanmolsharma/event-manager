@@ -18,7 +18,7 @@ export default {
   height: 100vh;
   width: 100vw;
 
-  background-image: url("../assets/bg.jpg");
+  background-image: url("../assets/bg-4.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,13 +28,22 @@ export default {
   justify-content: center;
 }
 .inner {
-  width: 60vw;
+  width: 70vw;
+  margin-bottom: 10vh;
 }
 .inner h1, h3{
-  text-align: center;
-  color: aliceblue;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 800;
+
+  font-size: clamp(50px, 5vw, 105px);
+
+  z-index: 5;
+
+  color: #FFFFFF;
 }
 .inner h3 {
-  font-size: 24px;
+  font-weight: 500;
+  font-size: clamp(30px, 2.5vw, 85px);
 }
 </style>

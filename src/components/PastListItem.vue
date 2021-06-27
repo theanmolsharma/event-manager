@@ -1,7 +1,6 @@
 <template>
   <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="card box-shadow mx-auto my-5" style="width: max(25vw, 20rem);">
-      <img src="https://nsa40.casimages.com/img/2021/06/15/210615072119710056.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title mt-1 md-1">{{event.Name}}</h5>
         <h6 class="card-subtitle mt-1 md-1">{{event.Date}} - {{event.Time}}</h6>
@@ -9,7 +8,7 @@
         <h6 class="card-subtitle mt-1 md-1">{{event.Location}}</h6>
         <p class="card-text mt-1 md-1">{{event.Description}}</p>
         <p></p>
-        <button class="btn btn-outline-dark btn-lg" disabled>Register</button>
+        <button class="btn btn-extra btn-outline-light btn-lg" disabled>Register</button>
       </div>
     </div>
   </div>
@@ -41,5 +40,33 @@ export default {
   -ms-transform: translateY(-15px);
   -o-transform: translateY(-15px);
   transform: translateY(-15px);
+}
+.card {
+  /*background: linear-gradient(225deg, #00c6ff, #0072ff);*/
+  outline: none;
+  border: none;
+  border-radius: 5vh;
+  background-image: url("../assets/Card-2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 45vh;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  text-align: center;
+  color: white;
+}
+.card-title {
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #FFFFFF;
+}
+.btn-extra {
+  border-radius: 40px;
 }
 </style>

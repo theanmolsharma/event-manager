@@ -2,35 +2,53 @@
   <div class="form-cont">
     <div class="form p-3" id="form">
       <div class="spacer" style="height: 6vh; width: 100%">
-        <button type="button" class="btn btn-outline-danger btn-sm close btn-extra" @click="closeRegForm">Close</button>
+        <button type="button" class="btn btn-extra btn-outline-danger btn-sm close" @click="closeEventForm">Close</button>
       </div>
       <div class="form-row pb-4">
         <div class="col-lg-12">
-          <input id="firstName" type="text" class="effect-1" placeholder="First Name">
+          <input id="Name" type="text" class="effect-1" placeholder="Name of Event">
           <span class="Focus-border"></span>
         </div>
       </div>
       <div class="form-row pb-4">
         <div class="col-lg-12">
-          <input id="lastName" type="text" class="effect-1" placeholder="Last Name">
+          <input id="Description" type="text" class="effect-1" placeholder="Write a one line description of the event">
           <span class="Focus-border"></span>
         </div>
       </div>
       <div class="form-row pb-4">
         <div class="col-lg-12">
-          <input id="email" type="text" class="effect-1" placeholder="Email Address">
+          <input id="Date" type="date" class="effect-1" value="2020-06-27">
           <span class="Focus-border"></span>
         </div>
       </div>
       <div class="form-row pb-4">
         <div class="col-lg-12">
-          <input id="mobileNumber" type="text" class="effect-1" placeholder="Mobile Number">
+          <input id="Time" type="time" class="effect-1" placeholder="Ex: 3:00 pm">
           <span class="Focus-border"></span>
         </div>
       </div>
       <div class="form-row pb-4">
         <div class="col-lg-12">
-          <button type="button" class="btn btn-extra btn-primary btn-lg" @click="submitData">Register</button>
+          <input id="Duration" type="text" class="effect-1" placeholder="Ex: 3 hours">
+          <span class="Focus-border"></span>
+        </div>
+      </div>
+      <div class="form-row pb-4">
+        <div class="col-lg-12">
+          <input id="Location" type="text" class="effect-1" placeholder="Ex: Lucknow">
+          <span class="Focus-border"></span>
+        </div>
+      </div>
+      <div class="form-row pb-4">
+        <div class="col-lg-12">
+          <input id="Secret" type="password" class="effect-1" placeholder="Enter Secret Key">
+          <span class="Focus-border"></span>
+        </div>
+      </div>
+      <div class="form-row pb-4">
+        <div class="col-lg-12">
+          <button type="button" class="btn btn-extra btn-primary btn-lg" @click="submitData">Add New Event</button>
           <span class="Focus-border"></span>
         </div>
       </div>
@@ -43,29 +61,38 @@ import axios from "axios";
 
 export default {
   name: "RegisterForm",
-  props: ['showRegisterForm'],
   methods: {
-    closeRegForm() {
-      this.$emit('closeRegForm');
+    closeEventForm() {
+      this.$emit('closeEventForm');
     },
     submitData() {
-      let firstName = document.getElementById('firstName').value;
-      let lastName = document.getElementById('lastName').value;
-      let email = document.getElementById('email').value;
-      let mobileNumber = document.getElementById('mobileNumber').value;
+      let Name = document.getElementById('Name').value;
+      let Description = document.getElementById('Description').value;
+      let Date = document.getElementById('Date').value;
+      let Time = document.getElementById('Time').value;
+      let Duration = document.getElementById('Duration').value;
+      let Location = document.getElementById('Location').value;
       let data = {
-        firstName,
-        lastName,
-        email,
-        mobileNumber
-      }
+        Name,
+        Description,
+        Date,
+        Time,
+        Duration,
+        Location,
+      };
       const headers = {
         'Content-Type': 'application/json'
       }
-      axios.post("https://sheetdb.io/api/v1/mtwm963uzgiay?sheet=Registered", data, {
+      let secret = document.getElementById('Secret').value;
+      axios.post("https://sheetdb.io/api/v1/"+secret, data, {
         headers: headers
-      }).then((response) => console.log(response));
-      this.closeRegForm();
+      }).then((response) => {
+        console.log(response);
+        if(response.status === 201) {
+          this.$emit('updateList', data);
+        }
+      });
+      this.closeEventForm();
     }
   }
 }
@@ -110,6 +137,7 @@ export default {
   border-radius: 40px;
   z-index: 7;
 }
+
 .effect-1
 {
   border:0;
